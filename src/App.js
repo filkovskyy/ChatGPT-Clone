@@ -142,10 +142,11 @@ function App() {
                                 {chatMessage.role === "user" &&
                                     <i className="fa-solid fa-user"></i>}
                                 {chatMessage.role === "assistant" &&
-                                    <i className="fa-solid fa-robot" ></i>}
+                                    <i className="fa-solid fa-robot"></i>}
                             </div>
-
-                            <p>{chatMessage.content}</p>
+                            <div className="message-content">
+                                <p>{chatMessage.content}</p>
+                            </div>
                         </li>)}
                     </ul>
                     <div className="bottom-section">

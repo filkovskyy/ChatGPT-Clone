@@ -13,7 +13,7 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .app {
@@ -74,6 +74,8 @@ nav {
     padding: 0 0px;
     margin: 0 10px;
     height: 100%;
+    width: 300px;
+
 }
 
 .history li {
@@ -178,10 +180,12 @@ input:focus {
 }
 
 
-.feed p {
+.message-content p {
+    max-width: fit-content;
+    width: 700px;
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
-    text-align: left;
+    text-align: justify;
     margin: 20px 50px;
 
 }
@@ -190,6 +194,9 @@ input:focus {
     min-width: 100px;
     align-items: center;
 
+}
+.role i {
+    font-size: 25px;
 }
 
 .fa-paper-plane {
