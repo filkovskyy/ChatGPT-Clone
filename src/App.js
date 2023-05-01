@@ -95,7 +95,7 @@ function App() {
                 </section>
                 <section className="main">
                     {!currentTitle && <div className="mainPage">
-                        <h1>ArtemGPT</h1>
+                        <h1 id="page-title">ArtemGPT</h1>
                         <div className="grid-container">
                             <div className="grid-column first">
                                 <i className="fa-regular fa-sun"></i>
@@ -151,14 +151,13 @@ function App() {
                     </ul>
                     <div className="bottom-section">
                         <div className="input-container">
-                            <input type="text" value={value}
+                            <input type="text" placeholder="Send a message." value={value}
                                    onChange={(e) => setValue(e.target.value)}/>
                             <div id="submit" onClick={getMessages}>
                                 <i className="fa-regular fa-paper-plane"></i>
                             </div>
                         </div>
-                        <p className="info">Free Research Preview. ChatGPT may produce inaccurate information about
-                            people, places, or facts. ChatGPT Mar 23 Version</p>
+                        <p className="info">This resource is using OpenAI API. This is not ChatGPT. You can find original ChatGPT <a href="https://chat.openai.com/">here</a>.</p>
                     </div>
                 </section>
             </div>

@@ -109,6 +109,11 @@ nav {
     text-align: center;
 }
 
+#page-title{
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
 .mainPage {
     position: absolute;
     top: 20%;
@@ -129,14 +134,13 @@ nav {
 }
 
 .input-container {
+    display: flex;
+    justify-content: space-between;
     position: relative;
     width: 100%;
-    max-width: 700px;
-}
-
-input {
+    max-width: 750px;
+    max-height: 22px;
     font-size: 16px;
-    width: 100%;
     border: none;
     background-color: rgba(255, 255, 255, 0.05);
     padding: 12px 15px;
@@ -148,17 +152,27 @@ input {
     rgba(0, 0, 0, 0.05) 0 -3px 5px;
 }
 
+input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 input:focus {
     outline: none;
 }
 
 
 #submit {
-    position: absolute;
-    bottom: 5px;
-    right: -10px;
-    padding: 5px;
-    border-radius: 15px;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+#submit:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+
 }
 
 .feed {
@@ -195,6 +209,7 @@ input:focus {
     align-items: center;
 
 }
+
 .role i {
     font-size: 25px;
 }
@@ -205,6 +220,7 @@ input:focus {
 
 .grid-container {
     display: flex;
+    width: 800px;
 }
 
 .grid-heading {
