@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import TypingEffect from './components/TypingEffect'
 
 function App() {
   const [value, setValue] = useState('')
@@ -80,16 +81,12 @@ function App() {
           </button>
           <ul className="history">
             <p id="history-title">History</p>
-            {uniqueTitles?.map(
-              (uniqueTitle, index) => (
-                <li key={index} onClick={() => handleClick(uniqueTitle)}>
-                  <i className="fa-regular fa-message"></i>
-                  <p>{uniqueTitle}</p>
-                </li>
-              )
-
-              //</div>
-            )}
+            {uniqueTitles?.map((uniqueTitle, index) => (
+              <li key={index} onClick={() => handleClick(uniqueTitle)}>
+                <i className="fa-regular fa-message"></i>
+                <p>{uniqueTitle.toUpperCase()}</p>
+              </li>
+            ))}
           </ul>
           <nav>
             <p>Made by Artem</p>
@@ -149,16 +146,26 @@ function App() {
           )}
           <ul className="feed">
             {currentChat?.map((chatMessage, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                className={
+                  chatMessage.role === 'user'
+                    ? 'user-message'
+                    : 'assistant-message'
+                }
+              >
                 <div className="role">
                   {chatMessage.role === 'user' && (
-                    <i className="fa-solid fa-user"></i>
+                    <div className="user-prompt">
+                      <i className="fa-solid fa-user"></i>
+                    </div>
                   )}
                   {chatMessage.role === 'assistant' && (
                     <i className="fa-solid fa-robot"></i>
                   )}
                 </div>
                 <div className="message-content">
+                  <TypingEffect message={chatMessage.content} />
                   <p>{chatMessage.content}</p>
                 </div>
               </li>
