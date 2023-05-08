@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 export default function TypingEffect(props) {
-  const [text, setText] = useState('')
-  const [blockPosition, setBlockPosition] = useState(0)
-  const { message } = props
+  const [text, setText] = useState('');
+  const [blockPosition, setBlockPosition] = useState(0);
+  const { message } = props;
 
   useEffect(() => {
-    let i = 0
+    let i = 0;
     const interval = setInterval(() => {
-      if (i >= message.length) {
-        clearInterval(interval)
-        return
+      if (text.length >= message.length) {
+        clearInterval(interval);
+        return;
       }
-      setText((prevText) => prevText + message.charAt(i))
+      setText((prevText) => prevText + message.charAt(text.length));
 
-      setBlockPosition((i + 1) * 10)
+      setBlockPosition((text.length + 1) * 10);
 
-      i++
-    }, 50)
+      i++;
+    }, 40);
 
-    return () => clearInterval(interval)
-  }, [message])
+    return () => clearInterval(interval);
+  }, [message, text]);
 
-  return <p style={{ left: blockPosition }}>{text}</p>
+  return <p style={{ left: `${blockPosition}px` }}>{text}</p>;
 }

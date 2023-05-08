@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import SideBar from './components/SideBar'
 import MainPage from './components/MainPage'
 import ChatFeed from './components/ChatFeed'
-import ChatInput from './components/ChatInput'
 
 function App() {
     const [value, setValue] = useState('')
@@ -78,19 +77,23 @@ function App() {
 
     return (
         <>
-            <div className="app">
+
+            <div className="app" >
                 <SideBar
                     createNewChat={createNewChat}
                     uniqueTitles={uniqueTitles}
                     handleClick={handleClick}
                 />
-                <MainPage currentTitle={currentTitle} />
-                <ChatFeed currentChat={currentChat} />
-                <ChatInput
-                    value={value}
-                    setValue={setValue}
-                    getMessages={getMessages}
-                />
+
+                <div className="content">
+                    <MainPage
+                        currentTitle={currentTitle}
+                        value={value}
+                        setValue={setValue}
+                        getMessages={getMessages}
+                    />
+                    <ChatFeed currentChat={currentChat} />
+                </div>
             </div>
         </>
     )

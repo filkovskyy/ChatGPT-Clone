@@ -1,15 +1,18 @@
 import React from 'react'
+import ChatInput from './ChatInput'
 
-function MainPage({ currentTitle }) {
+function MainPage({currentTitle, value, setValue, getMessages}) {
     return (
-        <section className="main">
+        <>
             {!currentTitle && (
-                <div className="mainPage">
+                <div className="main" >
                     <h1 id="page-title">ArtemGPT</h1>
                     <div className="grid-container">
                         <div className="grid-column first">
-                            <i className="fa-regular fa-sun"></i>
-                            <h2 className="grid-heading">Examples</h2>
+                            <div className="grid-heading">
+                                <i className="fa-regular fa-sun"></i>
+                                <h2>Examples</h2>
+                            </div>
                             <ul className="chat-overview">
                                 <li className="examples">
                                     <button>
@@ -32,8 +35,10 @@ function MainPage({ currentTitle }) {
                             </ul>
                         </div>
                         <div className="grid-column second">
-                            <i className="fa-solid fa-bolt"></i>
-                            <h2 className="grid-heading">Capabilities</h2>
+                            <div className="grid-heading">
+                                <i className="fa-solid fa-bolt"></i>
+                                <h2>Capabilities</h2>
+                            </div>
                             <ul className="chat-overview">
                                 <li>
                                     Remembers what user said earlier in the
@@ -48,8 +53,12 @@ function MainPage({ currentTitle }) {
                             </ul>
                         </div>
                         <div className="grid-column third">
+                            <div className="grid-heading">
+
                             <i className="fa-solid fa-triangle-exclamation"></i>
-                            <h2 className="grid-heading">Limitations</h2>
+                                <h2>Limitations</h2>
+                            </div>
+
                             <ul className="chat-overview">
                                 <li>
                                     May occasionally generate incorrect
@@ -68,7 +77,12 @@ function MainPage({ currentTitle }) {
                     </div>
                 </div>
             )}
-        </section>
+            <ChatInput
+                value={value}
+                setValue={setValue}
+                getMessages={getMessages}
+            />
+        </>
     )
 }
 
